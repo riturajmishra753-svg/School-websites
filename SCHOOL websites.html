@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excellence Academy - Your Path to Success</title>
+    
+    <style>
+        /* ===== GENERAL STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        /* ===== HEADER STYLES ===== */
+        header {
+            background-color: #003d82;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .school-name {
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        /* ===== NAVIGATION STYLES ===== */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+
+        nav a:hover {
+            color: #ffd700;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* ===== MOBILE MENU TOGGLE ===== */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* ===== SECTION STYLES ===== */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            color: #003d82;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            border-bottom: 3px solid #0066cc;
+            padding-bottom: 1rem;
+            display: inline-block;
+            width: 100%;
+        }
+
+        /* ===== HOME SECTION ===== */
+        #home {
+            background: linear-gradient(135deg, #003d82 0%, #0066cc 100%);
+            color: white;
+            text-align: center;
+            padding: 6rem 2rem;
+        }
+
+        .banner-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .banner-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .welcome-btn {
+            background-color: #ffd700;
+            color: #003d82;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-right: 1rem;
+        }
+
+        .welcome-btn:hover {
+            background-color: #ffed4e;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        #about {
+            background-color: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .about-highlight {
+            background-color: #e8f4f8;
+            padding: 2rem;
+            border-left: 5px solid #003d82;
+            border-radius: 4px;
+        }
+
+        /* ===== COURSES SECTION ===== */
+        #courses {
+            background-color: #f9f9f9;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .course-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .course-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .course-card h3 {
+            color: #003d82;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .course-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        #contact {
+            background-color: white;
+        }
+
+        .contact-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            background-color: #f9f9f9;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #003d82;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #0066cc;
+            box-shadow: 0 0 5px rgba(0, 102, 204, 0.3);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background-color: #003d82;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #0052a3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .error-message {
+            color: #d32f2f;
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+        }
+
+        .success-message {
+            color: #388e3c;
+            background-color: #e8f5e9;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        /* ===== FOOTER STYLES ===== */
+        footer {
+            background-color: #003d82;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            /* Hide desktop navigation, show mobile menu toggle */
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #003d82;
+                padding: 1rem;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .header-container {
+                flex-wrap: wrap;
+            }
+
+            /* Adjust banner content */
+            .banner-content h1 {
+                font-size: 2rem;
+            }
+
+            .banner-content p {
+                font-size: 1rem;
+            }
+
+            /* Adjust section titles */
+            section h2 {
+                font-size: 1.8rem;
+            }
+
+            /* Stack about section */
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            /* Adjust courses grid */
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* Button stacking */
+            .welcome-btn {
+                margin-right: 0;
+                margin-bottom: 1rem;
+                width: 100%;
+            }
+
+            section {
+                padding: 2rem 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .school-name {
+                font-size: 1.3rem;
+            }
+
+            .banner-content h1 {
+                font-size: 1.5rem;
+            }
+
+            section h2 {
+                font-size: 1.5rem;
+            }
+
+            .course-card {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER & NAVIGATION ===== -->
+    <header>
+        <div class="header-container">
+            <a href="#home" class="school-name">🎓 Excellence Academy</a>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <nav id="navMenu">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== HOME SECTION ===== -->
+    <section id="home">
+        <div class="banner-content">
+            <h1>Welcome to Excellence Academy</h1>
+            <p>Empowering Students, Building Futures, Creating Leaders</p>
+            <button class="welcome-btn" id="welcomeBtn">Click Here to Learn More</button>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section id="about">
+        <h2>About Our School</h2>
+        <div class="about-content">
+            <div>
+                <p>
+                    Excellence Academy has been a beacon of quality education for over 20 years. 
+                    We are committed to nurturing young minds and helping students achieve their 
+                    dreams through innovative teaching methods and dedicated mentors.
+                </p>
+                <p>
+                    Our mission is to provide a supportive learning environment where every student 
+                    can flourish academically, socially, and emotionally. We believe in the power of 
+                    education to transform lives and build a better future.
+                </p>
+            </div>
+            <div class="about-highlight">
+                <h3>Why Choose Us?</h3>
+                <p>✓ Experienced & Qualified Teachers</p>
+                <p>✓ Modern Infrastructure</p>
+                <p>✓ Holistic Development Programs</p>
+                <p>✓ Strong Alumni Network</p>
+                <p>✓ Affordable & Transparent Fee Structure</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== COURSES SECTION ===== -->
+    <section id="courses">
+        <h2>Our Courses</h2>
+        <div class="courses-grid">
+            <!-- Course 1 -->
+            <div class="course-card">
+                <div class="course-icon">📚</div>
+                <h3>Science</h3>
+                <p>
+                    Explore the wonders of Physics, Chemistry, and Biology. 
+                    Our science curriculum emphasizes hands-on experiments 
+                    and practical learning to spark curiosity.
+                </p>
+            </div>
+
+            <!-- Course 2 -->
+            <div class="course-card">
+                <div class="course-icon">📐</div>
+                <h3>Mathematics</h3>
+                <p>
+                    Master problem-solving skills with our comprehensive math program. 
+                    From basic arithmetic to advanced calculus, we build strong 
+                    mathematical foundations.
+                </p>
+            </div>
+
+            <!-- Course 3 -->
+            <div class="course-card">
+                <div class="course-icon">🌍</div>
+                <h3>Languages & Literature</h3>
+                <p>
+                    Develop communication skills and cultural awareness. 
+                    Learn English, regional languages, and explore world literature 
+                    to broaden your perspective.
+                </p>
+            </div>
+
+            <!-- Course 4 -->
+            <div class="course-card">
+                <div class="course-icon">💻</div>
+                <h3>Technology & Coding</h3>
+                <p>
+                    Prepare for the digital future with our modern tech curriculum. 
+                    Learn programming, web development, and digital literacy skills 
+                    required in today's world.
+                </p>
+            </div>
+
+            <!-- Course 5 -->
+            <div class="course-card">
+                <div class="course-icon">🎨</div>
+                <h3>Arts & Creativity</h3>
+                <p>
+                    Express yourself through various art forms. Our arts program 
+                    includes painting, music, dance, and theatre to nurture 
+                    creative talent.
+                </p>
+            </div>
+
+            <!-- Course 6 -->
+            <div class="course-card">
+                <div class="course-icon">⚽</div>
+                <h3>Sports & Fitness</h3>
+                <p>
+                    Build a healthy body and mind through our sports programs. 
+                    We offer training in various sports and promote physical 
+                    fitness and teamwork.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <div class="contact-container">
+            <form id="contactForm">
+                <!-- Success message (hidden by default) -->
+                <div id="successMessage" class="success-message" style="display: none;">
+                    Thank you! Your message has been sent successfully. We'll get back to you soon!
+                </div>
+
+                <!-- Name Field -->
+                <div class="form-group">
+                    <label for="name">Your Name *</label>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        placeholder="Enter your full name"
+                        required
+                    >
+                    <div class="error-message" id="nameError"></div>
+                </div>
+
+                <!-- Email Field -->
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="Enter your email address"
+                        required
+                    >
+                    <div class="error-message" id="emailError"></div>
+                </div>
+
+                <!-- Message Field -->
+                <div class="form-group">
+                    <label for="message">Your Message *</label>
+                    <textarea 
+                        id="message" 
+                        name="message" 
+                        placeholder="Write your message here..."
+                        required
+                    ></textarea>
+                    <div class="error-message" id="messageError"></div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <p>&copy; 2026 Excellence Academy. All rights reserved.</p>
+        <p>📍 123 Education Street | 📞 +1 (555) 123-4567 | 📧 info@excellenceacademy.edu</p>
+    </footer>
+
+    <script>
+        // ===== MOBILE MENU TOGGLE =====
+        // Get the menu toggle button and navigation menu
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        // Toggle menu visibility when button is clicked
+        menuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when a navigation link is clicked
+        const navLinks = navMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // ===== WELCOME BUTTON INTERACTION =====
+        // Get the welcome button and add click event
+        const welcomeBtn = document.getElementById('welcomeBtn');
+        welcomeBtn.addEventListener('click', function() {
+            alert('🎉 Welcome to Excellence Academy!\n\nWe are thrilled to have you here. Explore our courses and discover your potential!');
+        });
+
+        // ===== CONTACT FORM VALIDATION =====
+        // Get the contact form
+        const contactForm = document.getElementById('contactForm');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const messageInput = document.getElementById('message');
+
+        // Error message elements
+        const nameError = document.getElementById('nameError');
+        const emailError = document.getElementById('emailError');
+        const messageError = document.getElementById('messageError');
+        const successMessage = document.getElementById('successMessage');
+
+        // Function to validate email format
+        function isValidEmail(email) {
+            // Regular expression for email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Function to clear all error messages
+        function clearErrors() {
+            nameError.textContent = '';
+            emailError.textContent = '';
+            messageError.textContent = '';
+            successMessage.style.display = 'none';
+        }
+
+        // Form submission handler
+        contactForm.addEventListener('submit', function(event) {
+            // Prevent default form submission
+            event.preventDefault();
+
+            // Clear previous error messages
+            clearErrors();
+
+            // Get form input values
+            const name = nameInput.value.trim();
+            const email = emailInput.value.trim();
+            const message = messageInput.value.trim();
+
+            // Validation flag
+            let isValid = true;
+
+            // Validate name (check if empty)
+            if (name === '') {
+                nameError.textContent = '⚠️ Please enter your name.';
+                isValid = false;
+            }
+
+            // Validate email (check if empty and valid format)
+            if (email === '') {
+                emailError.textContent = '⚠️ Please enter your email address.';
+                isValid = false;
+            } else if (!isValidEmail(email)) {
+                emailError.textContent = '⚠️ Please enter a valid email address.';
+                isValid = false;
+            }
+
+            // Validate message (check if empty)
+            if (message === '') {
+                messageError.textContent = '⚠️ Please enter your message.';
+                isValid = false;
+            }
+
+            // If all validations pass, show success message and reset form
+            if (isValid) {
+                successMessage.style.display = 'block';
+                contactForm.reset(); // Clear all form fields
+
+                // Scroll to success message
+                successMessage.scrollIntoView({ behavior: 'smooth' });
+
+                // Hide success message after 5 seconds
+                setTimeout(function() {
+                    successMessage.style.display = 'none';
+                }, 5000);
+            }
+        });
+
+        // Clear error message when user starts typing
+        nameInput.addEventListener('input', function() {
+            if (nameError.textContent !== '') {
+                nameError.textContent = '';
+            }
+        });
+
+        emailInput.addEventListener('input', function() {
+            if (emailError.textContent !== '') {
+                emailError.textContent = '';
+            }
+        });
+
+        messageInput.addEventListener('input', function() {
+            if (messageError.textContent !== '') {
+                messageError.textContent = '';
+            }
+        });
+    </script>
+</body>
+</html>
